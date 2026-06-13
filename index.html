@@ -640,7 +640,6 @@ Always eager to learn new technologies and build efficient, scalable solutions.
               <a href="https://x.com/anshumanshahu12" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="https://discordapp.com/users/1468190222092206309" target="_blank" class="discord"><i class="bx bxl-discord"></i></a>
               <a href="mailto:anshulasksahu@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-
             </div>
           </div>
         </div>
@@ -652,6 +651,7 @@ Always eager to learn new technologies and build efficient, scalable solutions.
             <p>anshulasksahu@gmail.com</p>
           </div>
         </div>
+
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-phone-call"></i>
@@ -659,8 +659,55 @@ Always eager to learn new technologies and build efficient, scalable solutions.
             <p>+91 9527316881</p>
           </div>
         </div>
+
+        <!-- Contact Form -->
+<div class="col-md-12 mt-4 d-flex align-items-stretch">
+  <div style="width:100%; background:#0a1628; border-radius:12px; padding:32px; box-sizing:border-box;">
+
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid #1e3a5f;">
+      <div style="width:8px; height:8px; border-radius:50%; background:#12d640;"></div>
+      <div style="width:8px; height:8px; border-radius:50%; background:#12d640; opacity:0.5;"></div>
+      <div style="width:8px; height:8px; border-radius:50%; background:#12d640; opacity:0.25;"></div>
+      <span style="color:#8899aa; font-size:12px; margin-left:4px; letter-spacing:1px;">GET IN TOUCH</span>
+    </div>
+
+    <p style="color:#fff; font-size:18px; font-weight:700; margin:0 0 6px;">Send me a message</p>
+    <p style="color:#8899aa; font-size:13px; margin:0 0 24px;">I will reply U ASAP.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+      <div>
+        <label style="font-size:12px; color:#8899aa; text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; display:block; font-weight:600;">Your Name</label>
+        <input type="text" id="from_name" placeholder=""
+          style="width:100%; box-sizing:border-box; background:#0d1f35; border:1.5px solid #1e3a5f; color:#fff; border-radius:8px; padding:12px 16px; font-size:14px; outline:none; font-family:inherit;"
+          onfocus="this.style.borderColor='#12d640'" onblur="this.style.borderColor='#1e3a5f'">
       </div>
-      <!-- <div id="sfczmlqxr5caww28rswrt8849ghbekgnh3j" ></div><script type="text/javascript" src="https://counter1.stat.ovh/private/counter.js?c=zmlqxr5caww28rswrt8849ghbekgnh3j&down=async" async></script><noscript><a href="https://www.freecounterstat.com" title="free web counter"><img src="https://counter1.stat.ovh/private/freecounterstat.php?c=zmlqxr5caww28rswrt8849ghbekgnh3j" border="0" title="free web counter" alt="free web counter" style="visibility: none;"></a></noscript> -->
+      <div>
+        <label style="font-size:12px; color:#8899aa; text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; display:block; font-weight:600;">Your Email</label>
+        <input type="email" id="from_email" placeholder=""
+          style="width:100%; box-sizing:border-box; background:#0d1f35; border:1.5px solid #1e3a5f; color:#fff; border-radius:8px; padding:12px 16px; font-size:14px; outline:none; font-family:inherit;"
+          onfocus="this.style.borderColor='#12d640'" onblur="this.style.borderColor='#1e3a5f'">
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <label style="font-size:12px; color:#8899aa; text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; display:block; font-weight:600;">Message</label>
+      <textarea id="message" rows="5" placeholder=""
+        style="width:100%; box-sizing:border-box; background:#0d1f35; border:1.5px solid #1e3a5f; color:#fff; border-radius:8px; padding:12px 16px; font-size:14px; outline:none; resize:vertical; font-family:inherit; min-height:130px;"
+        onfocus="this.style.borderColor='#12d640'" onblur="this.style.borderColor='#1e3a5f'"></textarea>
+    </div>
+
+    <button onclick="sendEmail()"
+      style="background:#12d640; color:#000; border:none; border-radius:8px; padding:13px 32px; font-size:14px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      Send Message
+    </button>
+      <div id="form-status" style="font-size:13px; color:#8899aa; margin-top:12px; min-height:20px;">✦ Wait for a reply</div>
+
+  </div>
+</div>
+<!-- End Contact Form -->
+
+      </div>
     </div>
   </section>
 
@@ -684,6 +731,43 @@ Always eager to learn new technologies and build efficient, scalable solutions.
       typeSpeed: 65,
       backSpeed: 65
     });
+  </script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("lOq0TnvSearWB9lAM");
+
+    function sendEmail() {
+      var name    = document.getElementById("from_name").value.trim();
+      var email   = document.getElementById("from_email").value.trim();
+      var message = document.getElementById("message").value.trim();
+      var status  = document.getElementById("form-status");
+
+      if (!name || !email || !message) {
+        status.style.color = "#ff4444";
+        status.textContent = "Please fill all fields!";
+        return;
+      }
+
+      status.style.color = "#aaa";
+      status.textContent = "Sending...";
+
+      emailjs.send("service_24l21us", "template_clq2m8t", {
+        from_name:  name,
+        from_email: email,
+        message:    message
+      }).then(function() {
+        status.style.color = "#12d640";
+        status.textContent = "Message sent successfully! ✓";
+        document.getElementById("from_name").value  = "";
+        document.getElementById("from_email").value = "";
+        document.getElementById("message").value    = "";
+      }, function(error) {
+        status.style.color = "#ff4444";
+        status.textContent = "Error: " + error.text;
+      });
+    }
   </script>
 
   <!-- Template Main JS File -->
